@@ -13,8 +13,9 @@ public interface PersonRepository extends PagingAndSortingRepository<Person, Lon
 
     Person findById(Long id);
 
-    @Query("SELECT p FROM Person p WHERE p.lastName = :lastName")
-    List<Person> findByLastName(@Param("lastName") String lastName);
+    @Query("SELECT p FROM Person p WHERE p.lastName = :lastName AND p.firstName = 'Steven'")
+    List<Person> findAllStevesByLastName(@Param("lastName") String lastName);
+
 
 
 }
